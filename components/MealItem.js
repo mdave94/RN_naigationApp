@@ -1,12 +1,29 @@
 import { View, Text, Pressable, Image, StyleSheet } from "react-native";
 import { elevation, buttonPressed } from "../UI/sharedStyle";
+import { useNavigation } from "@react-navigation/native";
 
-function MealItem({ title, imageUrl, complexity, duration, affordability }) {
+function MealItem({
+  id,
+  title,
+  imageUrl,
+  complexity,
+  duration,
+  affordability,
+}) {
+  const navigation = useNavigation();
+
+  function onPressHandler() {
+    navigation.navigate("MealDetailsScreen", {
+      mealId: id,
+    });
+  }
+
   return (
     <View style={[styles.mealItem, elevation]}>
       <Pressable
         style={({ pressed }) => (pressed ? buttonPressed : null)}
         android_ripple={{ color: "#ccc" }}
+        onPress={onPressHandler}
       >
         <View style={styles.innerContainer}>
           <View>

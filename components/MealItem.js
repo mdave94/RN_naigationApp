@@ -1,6 +1,7 @@
 import { View, Text, Pressable, Image, StyleSheet } from "react-native";
 import { elevation, buttonPressed } from "../UI/sharedStyle";
 import { useNavigation } from "@react-navigation/native";
+import MealDetails from "./MealDetails";
 
 function MealItem({
   id,
@@ -30,11 +31,11 @@ function MealItem({
             <Image style={styles.image} source={{ uri: imageUrl }} />
             <Text style={styles.title}>{title}</Text>
           </View>
-          <View style={styles.details}>
-            <Text style={styles.detailItem}>{duration}m</Text>
-            <Text style={styles.detailItem}>{complexity.toUpperCase()}</Text>
-            <Text style={styles.detailItem}>{affordability.toUpperCase()}</Text>
-          </View>
+          <MealDetails
+            complexity={complexity}
+            duration={duration}
+            affordability={affordability}
+          />
         </View>
       </Pressable>
     </View>
@@ -59,16 +60,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 18,
     padding: 8,
-  },
-  details: {
-    flexDirection: "row",
-    alignItems: "center",
-    padding: 8,
-    justifyContent: "center",
-  },
-  detailItem: {
-    marginHorizontal: 4,
-    fontSize: 10,
   },
   innerContainer: {
     borderRadius: 8,

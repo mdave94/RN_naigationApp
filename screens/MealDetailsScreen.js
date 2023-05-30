@@ -12,6 +12,7 @@ import MealDetails from "../components/MealDetails";
 import Subtitle from "../components/MeailDetail/Subtitle";
 import List from "../components/MeailDetail/List";
 import { useLayoutEffect } from "react";
+import IconButton from "../components/IconButton";
 
 function MealDetailsScreen({ route, navigation }) {
   const meailId = route.params.mealId;
@@ -25,7 +26,13 @@ function MealDetailsScreen({ route, navigation }) {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => {
-        return <Button title="Press me " onPress={headerButtonPressHandler} />;
+        return (
+          <IconButton
+            icon="star"
+            color="white"
+            onPress={headerButtonPressHandler}
+          />
+        );
       },
     });
   }, [navigation, headerButtonPressHandler]);

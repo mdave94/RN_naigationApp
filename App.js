@@ -5,9 +5,16 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MealsOverviewScreen from "./screens/MealsOverviewScreen";
 import MealDetailsScreen from "./screens/MealDetailsScreen";
-
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import "react-native-gesture-handler";
 export default function App() {
   const Stack = createNativeStackNavigator();
+
+  const Drawer = createDrawerNavigator();
+
+  function DrawerNavigation() {
+    return <Drawer.Navigator></Drawer.Navigator>;
+  }
 
   return (
     <>

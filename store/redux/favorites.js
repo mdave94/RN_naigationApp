@@ -11,7 +11,7 @@ const favoiriteSclie = createSlice({
       state.ids.push(action.payload.id);
     },
     removeFavorite: (state, action) => {
-      state.id.splice(state.ids.indexOf(action.payload.id), 1);
+      state.ids.splice(state.ids.indexOf(action.payload.id), 1);
     },
   },
 });
